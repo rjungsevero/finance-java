@@ -4,15 +4,12 @@ import br.com.caelum.financas.modelos.Conta;
 import br.com.caelum.financas.util.JPAUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.swing.*;
 
 public class TesteConta {
 
     public static void main(String[] args) {
 
-        Conta conta = new Conta("Arthur Melo", "Banco do Brasil", "0001", "123456-7");
+        Conta conta = new Conta("Banco do Brasil", "0001", "123456-7");
 
         EntityManager entityManager = JPAUtil.getEntityManagerFactory();
 
