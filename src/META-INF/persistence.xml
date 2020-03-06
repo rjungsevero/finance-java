@@ -12,6 +12,9 @@
 
         <!-- Aqui são listadas todas as entidades -->
         <class>br.com.caelum.financas.modelos.Conta</class>
+        <class>br.com.caelum.financas.modelos.Movimentacao</class>
+        <class>br.com.caelum.financas.modelos.Cliente</class>
+        <class>br.com.caelum.financas.modelos.Categoria</class>
 
         <properties>
             <!-- Propriedades JDBC -->
@@ -22,9 +25,9 @@
 
             <!-- Configurações específicas do Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.format_sql" value="false" />
         </properties>
     </persistence-unit>
 </persistence>
