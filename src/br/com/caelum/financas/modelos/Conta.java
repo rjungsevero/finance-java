@@ -1,42 +1,26 @@
 package br.com.caelum.financas.modelos;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class Conta {
+public class Conta extends EntidadeBase {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String titular;
     private String banco;
     private String agencia;
     private String numero;
 
+    @OneToMany(mappedBy = "conta")
+    private List<Movimentacao> movimentacoes;
+
     public Conta() {
     }
 
-    public Conta(String titular, String banco, String agencia, String numero) {
-        this.titular = titular;
+    public Conta(String banco, String agencia, String numero) {
+        super();
         this.banco = banco;
         this.agencia = agencia;
         this.numero = numero;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitular() {
-        return titular;
-    }
-
-    public void setTitular(String titular) {
-        this.titular = titular;
     }
 
     public String getBanco() {
@@ -63,13 +47,20 @@ public class Conta {
         this.numero = numero;
     }
 
+    public List<Movimentacao> getMovimentacoes() {
+        return movimentacoes;
+    }
+
+    public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+        this.movimentacoes = movimentacoes;
+    }
+
     @Override
     public String toString() {
         return "\nConta:" +
-                "\n• Id: " + id +
-                "\n• Titular: " + titular +
-                "\n• Banco: " + banco +
-                "\n• Agência: " + agencia +
-                "\n• Número: " + numero;
+                "\nBanco: " + banco +
+                "\nAgência: " + agencia +
+                "\nNúmero: " + numero +
+                "\n" + movimentacoes;
     }
 }
